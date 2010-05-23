@@ -1,0 +1,48 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../src/CoreApp.o 
+
+CPP_SRCS += \
+../src/AudioManager.cpp \
+../src/BasicManager.cpp \
+../src/CoreApp.cpp \
+../src/Employee.cpp \
+../src/Manager.cpp \
+../src/MyThreadTing.cpp \
+../src/Thread.cpp \
+../src/VisualizationManager.cpp 
+
+OBJS += \
+./src/AudioManager.o \
+./src/BasicManager.o \
+./src/CoreApp.o \
+./src/Employee.o \
+./src/Manager.o \
+./src/MyThreadTing.o \
+./src/Thread.o \
+./src/VisualizationManager.o 
+
+CPP_DEPS += \
+./src/AudioManager.d \
+./src/BasicManager.d \
+./src/CoreApp.d \
+./src/Employee.d \
+./src/Manager.d \
+./src/MyThreadTing.d \
+./src/Thread.d \
+./src/VisualizationManager.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+src/%.o: ../src/%.cpp
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C++ Compiler'
+	g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

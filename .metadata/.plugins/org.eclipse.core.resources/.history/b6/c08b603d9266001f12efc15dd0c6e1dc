@@ -1,0 +1,118 @@
+//============================================================================
+// Name        : CoreApp.cpp
+// Author      : PedroLopes
+// Version     : 0.1a
+// Copyright   : Open License: see web.ist.utl.pt/Pedro.Lopes/blog for details
+// Description : MtDjing::Core Application
+//============================================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define mt_DEBUG 1
+#define mt_LOG 1
+
+#include <iostream>
+using namespace std;
+
+#include "BasicManager.h"
+#include "VisualizationManager.h"
+#include "AudioManager.h"
+#include "Employee.h"
+#include <string>
+//#include "../external-src/xmlParser/xmlParser.h"
+#include <stdio.h>    // to get "printf" function
+#include <stdlib.h>   // to get "free" function
+//#include "../external-src/pthreadsArchive/Pre-built.2/include/pthread.h"
+//#include "../external-src/pthreadsArchive/Pre-built.2/include/sched.h"
+//#include "../external-src/pthreadsArchive/Pre-built.2/include/semaphore.h"
+#include "MyThreadTing.h"
+
+#include <ting/Thread.hpp>
+
+string tab(int val) {
+	string temp;
+
+	for (int i = 0 ; i < val; i++)
+	{
+		temp.append(" ");
+	}
+ return temp;
+}
+
+void logging(int val, string str) {
+    if(mt_LOG) clog << tab(val) + str << endl;
+}
+
+void logging(int val, string str, string str2) {
+    if(mt_LOG) clog << tab(val) + str + str2 << endl;
+}
+
+int GetIntVal(string strConvert) {
+  int intReturn;
+
+  // NOTE: You should probably do some checks to ensure that
+  // this string contains only numbers. If the string is not
+  // a valid integer, zero will be returned.
+  intReturn = atoi(strConvert.c_str());
+
+  return(intReturn);
+}
+
+
+int main()
+{
+
+	//se calhar a linkar o gajo precisa da cena -lting
+	//MyThreadTing thr(2); //create an object on the stack for simplicity
+	//thr.Start();//start thread execution
+
+	//MyThreadTing th2(0); //create an object on the stack for simplicity
+	//th2.Start();//start thread execution
+
+	//MyThreadTing th3(0); //create an object on the stack for simplicity
+	//th3.Start();//start thread execution
+
+    logging(0,"Starting CoreApp");
+    logging(2,"Parsing Configuration XML file");
+    // this open and parse the XML file:
+
+    XMLNode xMainNode=XMLNode::openFileHelper("configuration/configuration.xml","configuration");
+
+    XMLNode xNode=xMainNode.getChildNode("coreApp");
+    logging(4, "CoreApp host is: ", xNode.getChildNode("host").getText());
+    logging(4, "CoreApp port is: ", xNode.getChildNode("port").getText());
+
+    logging(4,"Creating VisualizationManager");
+    MtDjing::VisualizationManager visualManager("vizi",3, false);
+		xNode=xMainNode.getChildNode("interface");
+		visualManager.setHostname(xNode.getChildNode("host").getText());
+		visualManager.setPortnumber(GetIntVal(xNode.getChildNode("port").getText()));
+    logging(4,"Successfully Created");
+
+
+    logging(4,"Creating AudioManager");
+    MtDjing::AudioManager audioManager("AudioManager", 3, false);
+    xNode=xMainNode.getChildNode("audio");
+    		audioManager.setHostname(xNode.getChildNode("host").getText());
+    		audioManager.setPortnumber(GetIntVal(xNode.getChildNode("port").getText()));
+    		audioManager.setDir(xNode.getChildNode("dir").getText());
+    		audioManager.setExec(xNode.getChildNode("exec").getText());
+    		//args currently disabled
+    logging(4,"Successfully Created");
+    logging(4,"Launching Audio Render");
+
+    std::string strCmd ("\""+audioManager.getDir()+"/"+audioManager.getExec()+"\"");
+    const char* charCmd = strCmd.c_str();
+    clog << charCmd;
+    //system("cd \"D:/XP32/Program\ Files/pd/bin\""); //correct way to do it, but should be //system(charCmd);
+    //system("\"D:/XP32/Program\ Files/pd/bin/pd.exe\"");
+    logging(4,"Successfully Launched");
+
+    logging(2,"Successfully Parsed");
+
+	return 0;
+}
+
+
+

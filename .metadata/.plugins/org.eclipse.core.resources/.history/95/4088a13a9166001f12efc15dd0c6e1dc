@@ -1,0 +1,17 @@
+/*
+ * Tryout.h
+ *
+ *  Created on: May 23, 2010
+ *      Author: pedro
+ */
+
+#ifndef TRYOUT_H_
+#define TRYOUT_H_
+
+class Tryout {
+public:
+	Tryout();
+	virtual ~Tryout();
+};
+
+#endif /* TRYOUT_H_ */

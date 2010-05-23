@@ -1,0 +1,20 @@
+//============================================================================
+// Name        : faroshit1.cpp
+// Author      : PedroLopes
+// Version     :
+// Copyright   : Open Licence: see web.ist.utl.pt/Pedro.Lopes/blog for details
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include "Tryout.h"
+using namespace std;
+
+int main() {
+
+	Tryout
+
+	cout << "Hello World!!!" << endl; // prints Hello World!!!
+
+	return 0;
+}

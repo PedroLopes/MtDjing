@@ -1,0 +1,15 @@
+//============================================================================
+// Name        : CoreApp.cpp
+// Author      : PedroLopes
+// Version     : 0.1a
+// Copyright   : Open License: see web.ist.utl.pt/Pedro.Lopes/blog for details
+// Description : MtDjing::Core Application
+//============================================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+	puts("github :D");
+	return EXIT_SUCCESS;
+}

@@ -1,0 +1,17 @@
+class Thread
+{
+   public:
+      Thread();
+      int Start(void * arg);
+   protected:
+      int Run(void * arg);
+      static void * EntryPoint(void*);
+      virtual void Setup();
+      virtual void Execute(void*);
+      void * Arg() const {return Arg_;}
+      void Arg(void* a){Arg_ = a;}
+   private:
+      THREADID ThreadId_;
+      void * Arg_;
+
+};

@@ -1,0 +1,17 @@
+CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
+
+OBJS =		src/CoreApp.o
+
+LIBS =		
+
+INCLUDES =	-I../external-src/xmlParser
+
+TARGET =	bin/CoreApp
+
+$(TARGET):	$(OBJS)
+	$(CXX) $(LIBS) -o $(TARGET) $(OBJS) $(LIBS)
+
+all:	$(TARGET)
+
+clean:
+	rm -f $(OBJS) $(TARGET)

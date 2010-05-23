@@ -1,0 +1,17 @@
+/*
+ * Tryout.cpp
+ *
+ *  Created on: May 23, 2010
+ *      Author: pedro
+ */
+
+#include "Tryout.h"
+
+Tryout::Tryout() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Tryout::~Tryout() {
+	// TODO Auto-generated destructor stub
+}

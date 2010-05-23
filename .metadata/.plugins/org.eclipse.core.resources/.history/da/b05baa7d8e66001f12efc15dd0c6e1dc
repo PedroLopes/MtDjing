@@ -1,0 +1,19 @@
+//============================================================================
+// Name        : finalshit.cpp
+// Author      : PedroLopes
+// Version     :
+// Copyright   : Open Licence: see web.ist.utl.pt/Pedro.Lopes/blog for details
+// Description : Hello World in C, Ansi-style
+//============================================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <first.h>
+
+int main(void) {
+
+	first
+
+	puts("Hello World!!!");
+	return EXIT_SUCCESS;
+}

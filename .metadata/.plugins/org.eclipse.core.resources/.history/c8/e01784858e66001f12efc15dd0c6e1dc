@@ -1,0 +1,17 @@
+/*
+ * first.cpp
+ *
+ *  Created on: May 23, 2010
+ *      Author: pedro
+ */
+
+#include "first.h"
+
+first::first() {
+	// TODO Auto-generated constructor stub
+
+}
+
+first::~first() {
+	// TODO Auto-generated destructor stub
+}
